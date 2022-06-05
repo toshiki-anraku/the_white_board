@@ -2,7 +2,7 @@
             use Illuminate\Support\Facades\Schema;
             use Illuminate\Database\Schema\Blueprint;
             use Illuminate\Database\Migrations\Migration;
-            
+
             class CreateMstGenresTable extends Migration
             {
                 /**
@@ -13,7 +13,7 @@
                 public function up()
                 {
                     Schema::create("mst_genres", function (Blueprint $table) {
-						$table->integer('id');
+						$table->id();
 						$table->string('genres_name',255);
 						$table->timestamps();
 						$table->softDeletes();
@@ -31,7 +31,7 @@
 
                     });
                 }
-    
+
                 /**
                  * Reverse the migrations.
                  *
@@ -42,4 +42,3 @@
                     Schema::dropIfExists("mst_genres");
                 }
             }
-        

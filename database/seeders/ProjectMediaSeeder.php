@@ -3,8 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
-class Users extends Seeder
+class ProjectMediaSeeder extends Seeder
 {
     /**
      * Run the database seeds.

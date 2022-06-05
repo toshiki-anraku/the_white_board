@@ -2,7 +2,7 @@
             use Illuminate\Support\Facades\Schema;
             use Illuminate\Database\Schema\Blueprint;
             use Illuminate\Database\Migrations\Migration;
-            
+
             class CreateProjectsTable extends Migration
             {
                 /**
@@ -13,15 +13,15 @@
                 public function up()
                 {
                     Schema::create("projects", function (Blueprint $table) {
-						$table->integer('id');
+						$table->id();
 						$table->integer('user_id')->unsigned();
 						$table->string('project_name',255);
 						$table->longText('explanation')->nullable();
-						$table->integer('secret_flag');
+						$table->integer('secret_flag')->nullable();
 						$table->integer('mst_genre_id')->unsigned();
 						$table->timestamps();
 						$table->softDeletes();
-						
+
 
                     //*********************************
                     // Foreign KEY [ Uncomment if you want to use!! ]
@@ -44,7 +44,7 @@
 
                     });
                 }
-    
+
                 /**
                  * Reverse the migrations.
                  *
@@ -55,4 +55,3 @@
                     Schema::dropIfExists("projects");
                 }
             }
-        
