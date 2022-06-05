@@ -36,13 +36,6 @@ class UserSeeder extends Seeder
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
-            [
-                'name' => 'test3',
-                'email' => 'test3@test',
-                'password' => bcrypt('password3'),
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ],
          ]);
     }
 }
