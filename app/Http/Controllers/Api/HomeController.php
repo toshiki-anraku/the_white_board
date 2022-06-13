@@ -18,7 +18,7 @@ class HomeController extends Controller
                 ->get();
        }
 
-       return 
+       return
         // } catch(\Exception $e){
         //     $result = [
         //         'result' => false,
