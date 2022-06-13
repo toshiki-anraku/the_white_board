@@ -2,7 +2,7 @@
             use Illuminate\Support\Facades\Schema;
             use Illuminate\Database\Schema\Blueprint;
             use Illuminate\Database\Migrations\Migration;
-            
+
             class CreateProjectMediasTable extends Migration
             {
                 /**
@@ -13,7 +13,7 @@
                 public function up()
                 {
                     Schema::create("project_medias", function (Blueprint $table) {
-						$table->integer('id');
+						$table->id();
 						$table->integer('project_id')->unsigned();
 						$table->string('media_type',255);
 						$table->string('media_path',255);
@@ -35,7 +35,7 @@
 
                     });
                 }
-    
+
                 /**
                  * Reverse the migrations.
                  *
@@ -46,4 +46,3 @@
                     Schema::dropIfExists("project_medias");
                 }
             }
-        

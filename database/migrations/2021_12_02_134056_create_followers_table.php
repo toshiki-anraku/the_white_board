@@ -2,7 +2,7 @@
             use Illuminate\Support\Facades\Schema;
             use Illuminate\Database\Schema\Blueprint;
             use Illuminate\Database\Migrations\Migration;
-            
+
             class CreateFollowersTable extends Migration
             {
                 /**
@@ -13,7 +13,7 @@
                 public function up()
                 {
                     Schema::create("followers", function (Blueprint $table) {
-						$table->integer('id');
+						$table->id();
 						$table->integer('following_id')->unsigned();
 						$table->integer('followed_id')->unsigned();
 						$table->timestamps();
@@ -36,7 +36,7 @@
 
                     });
                 }
-    
+
                 /**
                  * Reverse the migrations.
                  *
@@ -47,4 +47,3 @@
                     Schema::dropIfExists("followers");
                 }
             }
-        
