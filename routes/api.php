@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\LoginController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,4 +25,11 @@ use App\Http\Controllers\HomeController;
 //会員登録
 Route::get('the_white_board',[HomeController::class,'index']);
 Route::get('ver','API\VerController@index');
+// localhost/api/testにgetすると…
+Route::get('/test', function(){
+    return 'api is working!';
+});
 
+Route::post('/register', [RegisterController::class, 'register']);// ユーザー登録
+Route::post('/login', [LoginController::class, 'login']);// ログイン
+Route::post('/logout', [LoginController::class, 'logout']);// ログアウト
