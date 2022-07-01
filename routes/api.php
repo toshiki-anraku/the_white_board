@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Api\HomeController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 
@@ -33,3 +33,6 @@ Route::get('/test', function(){
 Route::post('/register', [RegisterController::class, 'register']);// ユーザー登録
 Route::post('/login', [LoginController::class, 'login']);// ログイン
 Route::post('/logout', [LoginController::class, 'logout']);// ログアウト
+Route::post('/projectList', [ProjectController::class, 'projectList']);//企画一覧
+Route::get('/home', [HomeController::class, 'index']);//企画一覧
+Route::get('/user', [HomeController::class, 'user']);//ユーザ情報
