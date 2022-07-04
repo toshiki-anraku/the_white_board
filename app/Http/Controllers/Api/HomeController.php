@@ -19,13 +19,48 @@ class HomeController extends Controller
         return $this->resConversionJson($project);
     }
     /**
-     * userテーブルから一番新しいカラムを取ってくる
+     * usersテーブルから一番新しいカラムを取ってくる
      */
     public function user()
     {
         $user = User::first();
         return $this->resConversionJson($user);
     }
+    /**
+     * projectsテーブルから一番新しいカラムを取ってくる
+     */
+    public function project()
+    {
+        $user = User::first();
+        return $this->resConversionJson($project);
+    }
+     /**
+     * likesテーブルから一番新しいカラムを取ってくる
+     */
+    public function like()
+    {
+        $user = User::first();
+        return $this->resConversionJson($like);
+    }
+    /**
+     * favoritesテーブルから一番新しいカラムを取ってくる
+     */
+    public function favorite()
+    {
+        $user = User::first();
+        return $this->resConversionJson($favorite);
+    }
+    /**
+     * secret_managementsテーブルから一番新しいカラムを取ってくる
+     */
+    public function secret_management()
+    {
+        $user = User::first();
+        return $this->resConversionJson($secret_management);
+    }
+
+  
+
     /**
      * 取得したデータをJson形式に変換
      */
