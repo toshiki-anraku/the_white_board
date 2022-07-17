@@ -34,5 +34,10 @@ Route::post('/register', [RegisterController::class, 'register']);// ユーザ�
 Route::post('/login', [LoginController::class, 'login']);// ログイン
 Route::post('/logout', [LoginController::class, 'logout']);// ログアウト
 Route::post('/projectList', [ProjectController::class, 'projectList']);//企画一覧
-Route::get('/home', [HomeController::class, 'index']);//企画一覧
 Route::get('/user', [HomeController::class, 'user']);//ユーザ情報
+Route::get('/home', [HomeController::class, 'user']);//企画一覧
+Route::get('/project/{user_id}', [HomeController::class, 'project']);//企画一覧
+Route::get('/like', [HomeController::class, 'like']);//企画一覧
+Route::get('/favorite', [HomeController::class, 'favorite']);//企画一覧
+Route::get('/secret_management', [HomeController::class, 'secret_management']);//企画一覧
+

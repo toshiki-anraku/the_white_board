@@ -6,40 +6,44 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Models\User;
-
+use App\Models\Like;
+use App\Models\Favorite;
+use App\Models\Secret_management;
 
 class HomeController extends Controller
 {
     /**
      * projectテーブルから一番新しいカラムを取ってくる
      */
-    public function index()
-    {
-        $project = Project::first();
-        return $this->resConversionJson($project);
-    }
+    // public function index()
+    // {
+    //     $project = Project::first();
+    //     return $this->resConversionJson($project);
+    // }
+
     /**
      * usersテーブルから一番新しいカラムを取ってくる
      */
     public function user()
     {
-        $user = User::first();
+        $user = User::get(['id','name','email','password','profile_picture_path','created_at','updated_at','deleted_at']);
+        // var_dump($this->resConversionJson($user));
         return $this->resConversionJson($user);
     }
     /**
-     * projectsテーブルから一番新しいカラムを取ってくる
+     * projectsテーブルからuser_idに紐づくproject_nameを持ってくる
      */
-    public function project()
+    public function project($user_id)
     {
-        $user = User::first();
+        $project = Project::where('user_id',$user_id)->get();
         return $this->resConversionJson($project);
     }
      /**
      * likesテーブルから一番新しいカラムを取ってくる
      */
-    public function like()
+    public function like($project_id,$user_id)
     {
-        $user = User::first();
+        $like = Like::where('project_id',$project_id)->get();
         return $this->resConversionJson($like);
     }
     /**
@@ -47,7 +51,7 @@ class HomeController extends Controller
      */
     public function favorite()
     {
-        $user = User::first();
+        $favorite = Favorite::first();
         return $this->resConversionJson($favorite);
     }
     /**
@@ -55,11 +59,11 @@ class HomeController extends Controller
      */
     public function secret_management()
     {
-        $user = User::first();
+        $secret_management = Secret_management::first();
         return $this->resConversionJson($secret_management);
     }
 
-  
+
 
     /**
      * 取得したデータをJson形式に変換
