@@ -41,3 +41,34 @@ Route::get('/like', [HomeController::class, 'like']);//企画一覧
 Route::get('/favorite', [HomeController::class, 'favorite']);//企画一覧
 Route::get('/secret_management', [HomeController::class, 'secret_management']);//企画一覧
 
+/* Profile */
+// お気に入り
+Route::get('/favorite', [FavoriteController::class, 'favorite']);
+// お気に入り解除
+Route::get('/unfavorite', [FavoriteController::class, 'unfavorite']);
+// 良いね
+Route::get('/like', [LikeController::class, 'like']);
+// 良いね解除
+Route::get('/unlike', [LikeController::class, 'unlike']);
+// ユーザー情報返却
+Route::get('/profile', [ProfileController::class, 'show']);
+// トプ画変更
+Route::get('/', [ProfileController::class, 'update']);
+// トプ画削除
+Route::get('/', [ProfileController::class, 'deleteImg']);
+// ユーザー名(name),メールアドレス(email), 自己紹介文(description)の更新処理
+Route::get('/', [ProfileController::class, 'updateImg']);
+// user_idに紐付く企画のデータを返却
+Route::get('/', [ProfileController::class, 'indexProjects']);
+// 退会処理
+Route::get('/', [ProfileController::class, 'withdrawal']);
+// パスワード変更
+Route::get('/', [ProfileController::class, 'resetPassword']);
+// フォロー
+Route::get('/', [ProfileController::class, 'follow']);
+// フォロー解除
+Route::get('/', [ProfileController::class, 'unfollow']);
+// 全フォローユーザーのレコード取得
+Route::get('/', [ProfileController::class, 'getFollow']);
+// 全フォロワーのレコードを取得
+Route::get('/', [ProfileController::class, 'getFollower']);
