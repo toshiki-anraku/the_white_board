@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\API;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Project;
@@ -10,7 +9,7 @@ use App\Models\Like;
 use App\Models\Favorite;
 use App\Models\Secret_management;
 
-class HomeController extends Controller
+class ProjectController extends Controller
 {
     /**
      * projectテーブルから一番新しいカラムを取ってくる
