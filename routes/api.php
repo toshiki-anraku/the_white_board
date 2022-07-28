@@ -2,9 +2,11 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\HomeController;
-use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\Api\HomeController;
+use App\Http\Controllers\Api\LikeController;
+use App\Http\Controllers\Api\ProfileController;
+use App\Http\Controllers\Api\FavoriteController;
 
 
 /*
@@ -37,38 +39,36 @@ Route::post('/projectList', [ProjectController::class, 'projectList']);//企画�
 Route::get('/user', [HomeController::class, 'user']);//ユーザ情報
 Route::get('/home', [HomeController::class, 'user']);//企画一覧
 Route::get('/project/{user_id}', [HomeController::class, 'project']);//企画一覧
-Route::get('/like', [HomeController::class, 'like']);//企画一覧
-Route::get('/favorite', [HomeController::class, 'favorite']);//企画一覧
 Route::get('/secret_management', [HomeController::class, 'secret_management']);//企画一覧
 
 /* Profile */
 // お気に入り
-Route::get('/favorite', [FavoriteController::class, 'favorite']);
+Route::post('/favorite', [FavoriteController::class, 'favorite']);
 // お気に入り解除
-Route::get('/unfavorite', [FavoriteController::class, 'unfavorite']);
+Route::delete('/favorite', [FavoriteController::class, 'unfavorite']);
 // 良いね
-Route::get('/like', [LikeController::class, 'like']);
+Route::post('/like', [LikeController::class, 'like']);
 // 良いね解除
-Route::get('/unlike', [LikeController::class, 'unlike']);
+Route::delete('/like', [LikeController::class, 'unlike']);
 // ユーザー情報返却
 Route::get('/profile', [ProfileController::class, 'show']);
-// トプ画変更
-Route::get('/', [ProfileController::class, 'update']);
-// トプ画削除
-Route::get('/', [ProfileController::class, 'deleteImg']);
 // ユーザー名(name),メールアドレス(email), 自己紹介文(description)の更新処理
-Route::get('/', [ProfileController::class, 'updateImg']);
+Route::patch('/profile', [ProfileController::class, 'update']);
+// プロフィール画像削除
+Route::delete('/prof-img', [ProfileController::class, 'deleteImg']);
+// プロフィール画像更新
+Route::patch('/prof-img', [ProfileController::class, 'updateImg']);
 // user_idに紐付く企画のデータを返却
-Route::get('/', [ProfileController::class, 'indexProjects']);
+Route::get('/projects/{id}', [ProfileController::class, 'indexProjects']);
 // 退会処理
-Route::get('/', [ProfileController::class, 'withdrawal']);
+Route::delete('/account', [ProfileController::class, 'withdrawal']);
 // パスワード変更
-Route::get('/', [ProfileController::class, 'resetPassword']);
+Route::patch('/password', [ProfileController::class, 'resetPassword']);
 // フォロー
-Route::get('/', [ProfileController::class, 'follow']);
+Route::post('/follow', [ProfileController::class, 'follow']);
 // フォロー解除
-Route::get('/', [ProfileController::class, 'unfollow']);
+Route::delete('/follow', [ProfileController::class, 'unfollow']);
 // 全フォローユーザーのレコード取得
-Route::get('/', [ProfileController::class, 'getFollow']);
+Route::get('/follows', [ProfileController::class, 'getFollow']);
 // 全フォロワーのレコードを取得
-Route::get('/', [ProfileController::class, 'getFollower']);
+Route::get('/followers', [ProfileController::class, 'getFollower']);

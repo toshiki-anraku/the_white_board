@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ProfileController extends Controller
 {
@@ -13,35 +14,35 @@ class ProfileController extends Controller
      * 必要カラム: name, email, description, profile_picture_path
      * 不要カラム: id, email_verified_at, password, remember_token, created_at, updated_at
      */
-    public function show($id)
+    public function show()
     {
-        //
+        return "ユーザー情報返却";
     }
 
     /**
      * ユーザー名(name),メールアドレス(email), 自己紹介文(description)の更新処理
      */
-    public function update(Request $request, $id)
+    public function update()
     {
-        //
+        return "ユーザー情報更新";
     }
 
     /**
-     * トプ画削除
+     * プロフィール画像削除
      * 画像保管場所から画像を削除し、デフォルト画像のpathを返却
      */
     public function deleteImg()
     {
-        //
+        return "プロフィール画像削除";
     }
 
     /**
-     * トプ画変更
+     * プロフィール画像更新
      * 画像をアップロードし、古い画像データを削除
      */
     public function updateImg()
     {
-        //
+        return "プロフィール画像更新";
     }
 
     /**
@@ -49,9 +50,9 @@ class ProfileController extends Controller
      * ※ソート, フィルターの処理で必要となるデータを考慮
      * ※likes, favorites, secret_managementsテーブルの情報の取得に関して一気に取得するか別で取得するか検討
      */
-    public function indexProjects()
+    public function indexProjects($id)
     {
-        //
+        return "自身の企画いデータを取得";
     }
 
     /**
@@ -59,7 +60,7 @@ class ProfileController extends Controller
      */
     public function withdrawal()
     {
-        //
+        return "退会処理";
     }
 
     /**
@@ -67,7 +68,7 @@ class ProfileController extends Controller
      */
     public function resetPassword()
     {
-        //
+        return "パスワード変更";
     }
 
     /**
@@ -75,7 +76,7 @@ class ProfileController extends Controller
      */
     public function follow()
     {
-        //
+        return "フォロー";
     }
 
     /**
@@ -83,7 +84,7 @@ class ProfileController extends Controller
      */
     public function unfollow()
     {
-        //
+        return "フォロー解除";
     }
 
 
@@ -92,7 +93,7 @@ class ProfileController extends Controller
      */
     public function getFollow()
     {
-        //
+        return "フォローユーザー取得";
     }
 
 
@@ -101,7 +102,7 @@ class ProfileController extends Controller
      */
     public function getFollower()
     {
-        //
+        return "フォロワー取得";
     }
 
     /**

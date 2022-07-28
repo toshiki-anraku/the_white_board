@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class LikeController extends Controller
 {
@@ -11,7 +12,7 @@ class LikeController extends Controller
      */
     public function like()
     {
-        //
+        return "良いね";
     }
 
     /**
@@ -19,7 +20,7 @@ class LikeController extends Controller
      */
     public function unlike()
     {
-        //
+        return "良いね解除";
     }
 
     /**

@@ -1,8 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+
+use App\Models\Favorite;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class FavoriteController extends Controller
 {
@@ -11,9 +14,8 @@ class FavoriteController extends Controller
      */
     public function favorite()
     {
-        // $user = User::get(['id','name','email','password','profile_picture_path','created_at','updated_at','deleted_at']);
-        // // var_dump($this->resConversionJson($user));
-        // return $this->resConversionJson($user);
+        $favorite = Favorite::get();
+        return $this->resConversionJson($favorite);
     }
 
     /**
@@ -21,7 +23,7 @@ class FavoriteController extends Controller
      */
     public function unfavorite()
     {
-        //
+        return "お気に入り解除";
     }
 
     /**
