@@ -12,7 +12,7 @@ class FavoriteController extends Controller
     /**
      * お気に入り
      */
-    public function favorite()
+    public function favorite(Request $request)
     {
         $favorite = Favorite::get();
         return $this->resConversionJson($favorite);
@@ -21,7 +21,7 @@ class FavoriteController extends Controller
     /**
      * お気に入り解除
      */
-    public function unfavorite()
+    public function unfavorite(Request $request)
     {
         return "お気に入り解除";
     }

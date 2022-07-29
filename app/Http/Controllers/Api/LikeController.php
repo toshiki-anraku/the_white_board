@@ -10,7 +10,7 @@ class LikeController extends Controller
     /**
      * 良いね
      */
-    public function like()
+    public function like(Request $request)
     {
         return "良いね";
     }
@@ -18,7 +18,7 @@ class LikeController extends Controller
     /**
      * 良いね解除
      */
-    public function unlike()
+    public function unlike(Request $request)
     {
         return "良いね解除";
     }
