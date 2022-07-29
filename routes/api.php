@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\LikeController;
 use App\Http\Controllers\Api\ProfileController;
 use App\Http\Controllers\Api\FavoriteController;
-
+use App\Http\Controllers\Api\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +17,18 @@ use App\Http\Controllers\Api\FavoriteController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+/* Project */
+// ログインしているユーザが閲覧可能な全企画データを取得
+Route::get('/projects', [ProjectController::class, 'index']);
+// 企画の作成
+Route::post('/project', [ProjectController::class, 'store']);
+// 企画詳細の表示
+Route::get('/project', [ProjectController::class, 'show']);
+// 企画の更新
+Route::put('/project', [ProjectController::class, 'update']);
+// 企画の削除
+Route::delete('/project', [ProjectController::class, 'destroy']);
 
 /* Profile */
 // お気に入り
