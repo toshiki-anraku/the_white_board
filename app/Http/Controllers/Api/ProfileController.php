@@ -118,7 +118,7 @@ class ProfileController extends Controller
      * 全フォローユーザーのレコード取得
      *
      * @param Request $request following_id
-     * @return void
+     * @return json
      */
     public function getFollow(Request $request)
     {
@@ -131,7 +131,7 @@ class ProfileController extends Controller
             }
         }
 
-        // パラメータと一致するフォローレコードを取得
+        // パラメータと一致するfollowersレコードを取得
         $follow = Follower::where('following_id', $request->following_id)->get();
         // フォローしているユーザーのデータを取得
         $following = User::whereIn('id', $follow->pluck('followed_id')->toArray())->get();
