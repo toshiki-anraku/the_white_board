@@ -20,6 +20,16 @@ class LikeController extends Controller
      */
     public function like(Request $request)
     {
+        // パラメータチェック
+        if($request) {
+            $err_1 = $request->user_id ? null : 'user_id, ';
+            $err_2 = $request->project_id  ? null : 'project_id, ';
+            if($err_1 || $err_2) {
+                $result = 'パラメータ不足:'.$err_1.$err_2;
+                return $result;
+            }
+        }
+
         // レコードがあるか確認
         $like = Like::where([
             ['user_id', $request->user_id],

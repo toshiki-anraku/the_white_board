@@ -84,6 +84,16 @@ class ProfileController extends Controller
      */
     public function follow(Request $request)
     {
+        // パラメータチェック
+        if($request) {
+            $err_1 = $request->following_id ? null : 'following_id, ';
+            $err_2 = $request->followed_id  ? null : 'followed_id, ';
+            if($err_1 || $err_2) {
+                $result = 'パラメータ不足:'.$err_1.$err_2;
+                return $result;
+            }
+        }
+
         // レコードがあるか確認
         $follow = Follower::where([
             ['following_id', $request->following_id],
