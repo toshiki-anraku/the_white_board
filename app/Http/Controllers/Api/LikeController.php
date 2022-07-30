@@ -21,20 +21,20 @@ class LikeController extends Controller
     public function like(Request $request)
     {
         // レコードがあるか確認
-        $favorite = Like::where([
+        $like = Like::where([
             ['user_id', $request->user_id],
             ['project_id' ,$request->project_id]
             ])
             ->first();
 
         // レコード追加
-        if(empty($favorite)) {
-            $favorite = Like::create($request->only(['user_id','project_id']));
+        if(empty($like)) {
+            $like = Like::create($request->only(['user_id','project_id']));
             return '追加完了';
 
         // レコード削除
         } else {
-            $favorite->delete();
+            $like->delete();
             return '削除完了';
         }
     }
