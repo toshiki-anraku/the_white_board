@@ -31,10 +31,8 @@ Route::put('/project', [ProjectController::class, 'update']);
 Route::delete('/project', [ProjectController::class, 'destroy']);
 
 /* Profile */
-// お気に入り
+// お気に入り on/off
 Route::post('/favorite', [FavoriteController::class, 'favorite']);
-// お気に入り解除
-Route::delete('/favorite', [FavoriteController::class, 'unfavorite']);
 // 良いね
 Route::post('/like', [LikeController::class, 'like']);
 // 良いね解除

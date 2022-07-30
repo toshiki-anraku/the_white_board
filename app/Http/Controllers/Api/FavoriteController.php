@@ -10,30 +10,32 @@ use App\Http\Controllers\Controller;
 class FavoriteController extends Controller
 {
     /**
-     * お気に入り
+     * お気に入り、お気に入り解除
+     *
+     * favoritesテーブルにparamと一致するレコードがあるか確認し条件分岐
+     * 有り: レコードの削除
+     * 無し: レコードの追加
+     *
+     * @param Request $request {user_id, project_id}
+     * @return void
      */
     public function favorite(Request $request)
     {
-        $favorite = Favorite::get();
-        return $this->resConversionJson($favorite);
-    }
+        $favorite = Favorite::where([
+            ['user_id', $request->user_id],
+            ['project_id' ,$request->project_id]
+            ])
+            ->first();
 
-    /**
-     * お気に入り解除
-     */
-    public function unfavorite(Request $request)
-    {
-        return "お気に入り解除";
-    }
+        // レコード追加
+        if(empty($favorite)) {
+            $favorite = Favorite::create($request->only(['user_id','project_id']));
+            return '追加完了';
 
-    /**
-     * 取得したデータをJson形式に変換
-     */
-    private function resConversionJson($result, $statusCode=200)
-    {
-        if(empty($statusCode) || $statusCode < 100 || $statusCode >= 600){
-            $statusCode = 500;
+        // レコード削除
+        } else {
+            $favorite->delete();
+            return '削除完了';
         }
-        return response()->json($result, $statusCode, ['Content-Type' => 'application/json'], JSON_UNESCAPED_SLASHES);
     }
 }
