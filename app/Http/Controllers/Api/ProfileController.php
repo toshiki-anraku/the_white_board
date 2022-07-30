@@ -80,7 +80,7 @@ class ProfileController extends Controller
      * 有り: レコードの削除
      * 無し: レコードの追加
      *
-     * @param Request $request {following_id, followed_id}
+     * @param Request $request following_id, followed_id
      * @return void
      */
     public function follow(Request $request)
@@ -114,9 +114,11 @@ class ProfileController extends Controller
         }
     }
 
-
     /**
      * 全フォローユーザーのレコード取得
+     *
+     * @param Request $request following_id
+     * @return void
      */
     public function getFollow(Request $request)
     {
@@ -142,13 +144,34 @@ class ProfileController extends Controller
         );
     }
 
-
     /**
      * 全フォロワーのレコードを取得
+     *
+     * @param Request $request followed_id
+     * @return json
      */
     public function getFollower(Request $request)
     {
-        return "フォロワー取得";
+        // パラメータチェック
+        if($request) {
+            $err_1 = $request->followed_id ? null : 'followed_id, ';
+            if($err_1) {
+                $result = 'パラメータ不足:'.$err_1;
+                return $result;
+            }
+        }
+
+        // パラメータと一致するfollowersレコードを取得
+        $follow = Follower::where('followed_id', $request->followed_id)->get();
+        // フォローされているユーザーのデータを取得
+        $followed = User::whereIn('id', $follow->pluck('following_id')->toArray())->get();
+
+        return response()->json(
+            [
+                'followed' => $followed,
+                'count' => $follow->count(),
+            ]
+        );
     }
 
     /**
