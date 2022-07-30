@@ -21,6 +21,7 @@ class FavoriteController extends Controller
      */
     public function favorite(Request $request)
     {
+        // レコードがあるか確認
         $favorite = Favorite::where([
             ['user_id', $request->user_id],
             ['project_id' ,$request->project_id]

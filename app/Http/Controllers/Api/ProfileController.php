@@ -84,6 +84,7 @@ class ProfileController extends Controller
      */
     public function follow(Request $request)
     {
+        // レコードがあるか確認
         $favorite = Follower::where([
             ['following_id', $request->following_id],
             ['followed_id' ,$request->followed_id]

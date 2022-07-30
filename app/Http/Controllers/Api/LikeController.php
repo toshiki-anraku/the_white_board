@@ -20,6 +20,7 @@ class LikeController extends Controller
      */
     public function like(Request $request)
     {
+        // レコードがあるか確認
         $favorite = Like::where([
             ['user_id', $request->user_id],
             ['project_id' ,$request->project_id]
