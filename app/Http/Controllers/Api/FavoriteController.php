@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 class FavoriteController extends Controller
 {
     /**
-     * お気に入り、お気に入り解除
+     * お気に入り on/off
      *
      * favoritesテーブルにparamと一致するレコードがあるか確認し条件分岐
      * 有り: レコードの削除
