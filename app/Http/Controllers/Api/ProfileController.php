@@ -85,20 +85,20 @@ class ProfileController extends Controller
     public function follow(Request $request)
     {
         // レコードがあるか確認
-        $favorite = Follower::where([
+        $follow = Follower::where([
             ['following_id', $request->following_id],
             ['followed_id' ,$request->followed_id]
             ])
             ->first();
 
         // レコード追加
-        if(empty($favorite)) {
-            $favorite = Follower::create($request->only(['following_id','followed_id']));
+        if(empty($follow)) {
+            $follow = Follower::create($request->only(['following_id','followed_id']));
             return '追加完了';
 
         // レコード削除
         } else {
-            $favorite->delete();
+            $follow->delete();
             return '削除完了';
         }
     }
