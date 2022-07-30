@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\User;
 use App\Models\Follower;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -119,7 +120,26 @@ class ProfileController extends Controller
      */
     public function getFollow(Request $request)
     {
-        return "フォローユーザー取得";
+        // パラメータチェック
+        if($request) {
+            $err_1 = $request->following_id ? null : 'following_id, ';
+            if($err_1) {
+                $result = 'パラメータ不足:'.$err_1;
+                return $result;
+            }
+        }
+
+        // パラメータと一致するフォローレコードを取得
+        $follow = Follower::where('following_id', $request->following_id)->get();
+        // フォローしているユーザーのデータを取得
+        $following = User::whereIn('id', $follow->pluck('followed_id')->toArray())->get();
+
+        return response()->json(
+            [
+                'following' => $following,
+                'count' => $follow->count(),
+            ]
+        );
     }
 
 
