@@ -33,10 +33,8 @@ Route::delete('/project', [ProjectController::class, 'destroy']);
 /* Profile */
 // お気に入り on/off
 Route::post('/favorite', [FavoriteController::class, 'favorite']);
-// 良いね
+// いいね on/off
 Route::post('/like', [LikeController::class, 'like']);
-// 良いね解除
-Route::delete('/like', [LikeController::class, 'unlike']);
 // ユーザー情報返却
 Route::get('/profile', [ProfileController::class, 'show']);
 // ユーザー名(name),メールアドレス(email), 自己紹介文(description)の更新処理

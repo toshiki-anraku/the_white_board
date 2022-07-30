@@ -2,35 +2,39 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\Like;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class LikeController extends Controller
 {
     /**
-     * 良いね
+     * いいね on/off
+     *
+     * likesテーブルにparamと一致するレコードがあるか確認し条件分岐
+     * 有り: レコードの削除
+     * 無し: レコードの追加
+     *
+     * @param Request $request {user_id, project_id}
+     * @return void
      */
     public function like(Request $request)
     {
-        return "良いね";
-    }
+        $favorite = Like::where([
+            ['user_id', $request->user_id],
+            ['project_id' ,$request->project_id]
+            ])
+            ->first();
 
-    /**
-     * 良いね解除
-     */
-    public function unlike(Request $request)
-    {
-        return "良いね解除";
-    }
+        // レコード追加
+        if(empty($favorite)) {
+            $favorite = Like::create($request->only(['user_id','project_id']));
+            return '追加完了';
 
-    /**
-     * 取得したデータをJson形式に変換
-     */
-    private function resConversionJson($result, $statusCode=200)
-    {
-        if(empty($statusCode) || $statusCode < 100 || $statusCode >= 600){
-            $statusCode = 500;
+        // レコード削除
+        } else {
+            $favorite->delete();
+            return '削除完了';
         }
-        return response()->json($result, $statusCode, ['Content-Type' => 'application/json'], JSON_UNESCAPED_SLASHES);
     }
 }
