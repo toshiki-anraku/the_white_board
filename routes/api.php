@@ -49,10 +49,8 @@ Route::get('/my-projects', [ProfileController::class, 'indexProjects']);
 Route::delete('/account', [ProfileController::class, 'withdrawal']);
 // パスワード変更
 Route::patch('/password', [ProfileController::class, 'resetPassword']);
-// フォロー
+// フォロー on/off
 Route::post('/follow', [ProfileController::class, 'follow']);
-// フォロー解除
-Route::delete('/follow', [ProfileController::class, 'unfollow']);
 // 全フォローユーザーのレコード取得
 Route::get('/follows', [ProfileController::class, 'getFollow']);
 // 全フォロワーのレコードを取得

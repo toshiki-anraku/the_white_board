@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\Follower;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -72,19 +73,33 @@ class ProfileController extends Controller
     }
 
     /**
-     * フォロー
+     * フォロー on/off
+     *
+     * followersテーブルにparamと一致するレコードがあるか確認し条件分岐
+     * 有り: レコードの削除
+     * 無し: レコードの追加
+     *
+     * @param Request $request {following_id, followed_id}
+     * @return void
      */
     public function follow(Request $request)
     {
-        return "フォロー";
-    }
+        $favorite = Follower::where([
+            ['following_id', $request->following_id],
+            ['followed_id' ,$request->followed_id]
+            ])
+            ->first();
 
-    /**
-     * フォロー解除
-     */
-    public function unfollow(Request $request)
-    {
-        return "フォロー解除";
+        // レコード追加
+        if(empty($favorite)) {
+            $favorite = Follower::create($request->only(['following_id','followed_id']));
+            return '追加完了';
+
+        // レコード削除
+        } else {
+            $favorite->delete();
+            return '削除完了';
+        }
     }
 
 
