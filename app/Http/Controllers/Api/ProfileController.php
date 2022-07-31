@@ -188,7 +188,16 @@ class ProfileController extends Controller
      */
     public function withdrawal(Request $request)
     {
-        return "退会処理";
+        // パラメータチェック
+        if($request) {
+            $err_1 = $request->user_id  ? null : 'user_id, ';
+            if($err_1) {
+                return 'パラメータ不足:'.$err_1;
+            }
+        }
+
+        User::destroy($request->user_id);
+        return "退会完了";
     }
 
     /**
