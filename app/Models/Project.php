@@ -10,25 +10,45 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-    // private function  makeProject($project_id)
-    // {
-    //     try{
-    //         $selectProjectTable = DB::('the_white_board')
-    //         ->table("projects")
-    //         ->select(
-    //             $id => 'id' as 'project_id',
-    //             $user_id => 'user_id' as 'user_id',
-    //             $project => 'project_name' as 'project_name',
-    //             $explanation =>'explanation' as 'explanation',
-    //             $secret_flg => 'secret_flg' as 'secret_flg',
-    //             $mst_genre_id => 'mst_genre_id' as 'mst_genre_id',
-    //         )
-    //         ->where("project_id" , "=" , $project_id)
-    //         ->get();
-    //         Log::error("失敗でござる。どんまいwwwww",['file' => _FILE_,'line' => _LINE_]);
-    //     }
-    //     return $selectProjectTable;
-    // }
+    // likesとの関連定義
+    public function likes()
+    {
+        return $this->belongsToMany(User::class, 'likes');
+    }
+
+    // favoritesとの関連定義
+    public function favorites()
+    {
+        return $this->belongsToMany(User::class, 'favorites');
+    }
+
+    // secret_managementsとの関連定義
+    public function secret_managements()
+    {
+        return $this->belongsToMany(User::class, 'secret_managements');
+    }
+
+    // commentsとの関連定義
+    public function comments()
+    {
+        return $this->belongsToMany(User::class, 'comments')
+            ->withPivot([
+                'id',
+                'comment',
+                'created_at',
+                'updated_at'
+            ]);
+    }
+
+    // project_mediasとの関連定義
+    public function project_medias()
+    {
+        return $this->hasMany(ProjectMedia::class);
+    }
+
+    // mst_genresとの関連定義
+    public function mst_genres()
+    {
+        return $this->belongsTo(MstGenre::class);
+    }
 }
-
-
