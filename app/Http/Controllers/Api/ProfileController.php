@@ -56,7 +56,7 @@ class ProfileController extends Controller
             return 'デフォルト画像は削除出来ません';
         }
 
-        // path加工
+        // pathからファイル名を抽出
         preg_match("/[^\/]+$/", $path, $file);
         // 削除処理
         Storage::disk('public')->delete('icon/' . $file[0]);
@@ -93,7 +93,9 @@ class ProfileController extends Controller
         $path = $request->profile_picture_path;
         // 変更前の画像がデフォルトでない場合、ファイルを削除
         if($path != UserConst::DEFAULT_ICON_PATH) {
+            // pathからファイル名を抽出
             preg_match("/[^\/]+$/", $path, $file);
+            // 削除処理
             Storage::disk('public')
                 ->delete($dir . '/' . $file[0]);
         }
