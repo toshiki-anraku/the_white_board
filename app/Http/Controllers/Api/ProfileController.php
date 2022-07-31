@@ -6,6 +6,8 @@ use App\Models\User;
 use App\Models\Follower;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
+use App\Consts\UserConst;
 
 class ProfileController extends Controller
 {
@@ -35,7 +37,12 @@ class ProfileController extends Controller
      */
     public function deleteImg(Request $request)
     {
-        return "プロフィール画像削除";
+        Storage::delete($request->profile_picture_path);
+        // $user = User::where('id', $request->user_id)->update([
+        //     'profile_picture_path' => '/img/defaultIcon.jpeg'
+        // ]);
+
+        return ;
     }
 
     /**
@@ -44,7 +51,27 @@ class ProfileController extends Controller
      */
     public function updateImg(Request $request)
     {
-        return "プロフィール画像更新";
+        // ディレクトリ名
+        $dir = 'icon';
+        // 変更前のプロフィール画像のパス
+        $path = $request->profile_picture_path;
+        // 変更前の画像がデフォルトでない場合、ファイルを削除
+        if($path != UserConst::DEFAULT_ICON_PATH) {
+            preg_match("/[^\/]+$/", $path, $file);
+            $result = Storage::disk('public')
+                ->delete($dir . '/' . $file[0]);
+        }
+
+        // アップロードされたファイル名を取得
+        $file_name = $request->file('image')->getClientOriginalName();
+        // sampleディレクトリに画像を保存
+        $request->file('image')->storeAs('public/'.$dir,  $file_name);
+        // プロフィールのパスを更新
+        User::where('id', $request->user_id)->update([
+            'profile_picture_path' => 'storage/' . $dir . '/' . $file_name
+        ]);
+
+        return '更新完了';
     }
 
     /**
