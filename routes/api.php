@@ -47,8 +47,6 @@ Route::post('/prof-img', [ProfileController::class, 'updateImg']);
 Route::get('/my-projects', [ProfileController::class, 'indexProjects']);
 // 退会処理
 Route::delete('/account', [ProfileController::class, 'withdrawal']);
-// パスワード変更
-Route::patch('/password', [ProfileController::class, 'resetPassword']);
 // フォロー on/off
 Route::post('/follow', [ProfileController::class, 'follow']);
 // 全フォローユーザーのレコード取得

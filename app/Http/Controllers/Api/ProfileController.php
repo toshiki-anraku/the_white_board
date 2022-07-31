@@ -192,14 +192,6 @@ class ProfileController extends Controller
     }
 
     /**
-     * パスワード変更(Breezeで実装されていないか調査)
-     */
-    public function resetPassword(Request $request)
-    {
-        return "パスワード変更";
-    }
-
-    /**
      * フォロー on/off
      *
      * followersテーブルにparamと一致するレコードがあるか確認し条件分岐
