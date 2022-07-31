@@ -44,7 +44,27 @@ class ProfileController extends Controller
      */
     public function update(Request $request)
     {
-        return "ユーザー情報更新";
+        // 更新データ配列
+        $arr = [];
+        // 更新カラム
+        $columns = [
+            'name',
+            'email',
+            'description'
+        ];
+
+        // 変更有無のチェック
+        foreach ($columns as $value) {
+            if ($request->$value) {
+                $arr[$value] = $request->$value;
+            }
+        }
+
+        // ユーザーデータ更新
+        User::where('id', $request->user_id)
+            ->update($arr);
+
+        return '更新完了';
     }
 
     /**
