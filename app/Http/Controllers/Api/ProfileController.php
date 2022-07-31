@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\User;
+use App\Models\Project;
 use App\Models\Follower;
+use App\Consts\UserConst;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
-use App\Consts\UserConst;
 
 class ProfileController extends Controller
 {
@@ -151,11 +152,35 @@ class ProfileController extends Controller
     /**
      * user_idに紐付く企画のデータを返却
      * ※ソート, フィルターの処理で必要となるデータを考慮
-     * ※likes, favorites, secret_managementsテーブルの情報の取得に関して一気に取得するか別で取得するか検討
+     * ※likes, favorites, secret_managements, comments, project_medias, mst_genresテーブルの情報の取得に関して一気に取得するか別で取得するか検討
      */
     public function indexProjects(Request $request)
     {
-        return "自身の企画いデータを取得";
+        // パラメータチェック
+        if($request) {
+            $err_1 = $request->user_id  ? null : 'user_id, ';
+            if($err_1) {
+                return 'パラメータ不足:'.$err_1;
+            }
+        }
+
+        $myProject = Project::where('user_id', $request->user_id)
+            ->with([
+                'likes',
+                'favorites',
+                'secret_managements',
+                'comments',
+                'project_medias',
+                'mst_genres',
+            ])
+            ->get()
+            ->toArray();
+
+        return response()->json(
+            [
+                'my_project' => $myProject,
+            ]
+        );
     }
 
     /**
