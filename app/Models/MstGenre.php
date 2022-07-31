@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Secret_management extends Model
+class MstGenre extends Model
 {
     use HasFactory;
 }
