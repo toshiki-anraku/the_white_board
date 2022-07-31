@@ -13,11 +13,10 @@ use Illuminate\Support\Facades\Storage;
 class ProfileController extends Controller
 {
     /**
-     * ユーザー情報返却
-     * ※ profile_picture_pathはデフォル画像を用意してpathを指定
-     * 全カラム: id name email email_verified_at password remember_token description profile_picture_path created_at updated_at deleted_at
-     * 必要カラム: name, email, description, profile_picture_path
-     * 不要カラム: id, email_verified_at, password, remember_token, created_at, updated_at
+     * ユーザーデータ取得
+     *
+     * @param Request $request user_id
+     * @return void
      */
     public function show(Request $request)
     {
@@ -42,6 +41,9 @@ class ProfileController extends Controller
 
     /**
      * ユーザー名(name),メールアドレス(email), 自己紹介文(description)の更新処理
+     *
+     * @param Request $request
+     * @return void
      */
     public function update(Request $request)
     {
@@ -71,6 +73,9 @@ class ProfileController extends Controller
     /**
      * プロフィール画像削除
      * 画像保管場所から画像を削除し、デフォルト画像のpathを返却
+     *
+     * @param Request $request profile_picture_path, user_id
+     * @return void
      */
     public function deleteImg(Request $request)
     {
@@ -109,6 +114,9 @@ class ProfileController extends Controller
     /**
      * プロフィール画像更新
      * 画像をアップロードし、古い画像データを削除
+     *
+     * @param Request $request image, profile_picture_path, user_id
+     * @return void
      */
     public function updateImg(Request $request)
     {
@@ -151,8 +159,9 @@ class ProfileController extends Controller
 
     /**
      * user_idに紐付く企画のデータを返却
-     * ※ソート, フィルターの処理で必要となるデータを考慮
-     * ※likes, favorites, secret_managements, comments, project_medias, mst_genresテーブルの情報の取得に関して一気に取得するか別で取得するか検討
+     *
+     * @param Request $request user_id
+     * @return void
      */
     public function indexProjects(Request $request)
     {
@@ -184,7 +193,10 @@ class ProfileController extends Controller
     }
 
     /**
-     * 退会処理(Breezeで実装されていないか調査)
+     * 退会処理
+     *
+     * @param Request $request user_id
+     * @return void
      */
     public function withdrawal(Request $request)
     {
