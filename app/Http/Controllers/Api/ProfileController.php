@@ -37,12 +37,36 @@ class ProfileController extends Controller
      */
     public function deleteImg(Request $request)
     {
-        Storage::delete($request->profile_picture_path);
-        // $user = User::where('id', $request->user_id)->update([
-        //     'profile_picture_path' => '/img/defaultIcon.jpeg'
-        // ]);
+        // パラメータチェック
+        if($request) {
+            $err_1 = $request->profile_picture_path  ? null : 'profile_picture_path, ';
+            $err_2 = $request->user_id  ? null : 'user_id, ';
 
-        return ;
+            if($err_1 || $err_2) {
+                $result = 'パラメータ不足:'.$err_1.$err_2;
+                return $result;
+            }
+        }
+
+        // 削除前のプロフィール画像のパス
+        $path = $request->profile_picture_path;
+
+        // 削除前の画像がデフォルトでない場合、ファイルを削除
+        if($path == UserConst::DEFAULT_ICON_PATH) {
+            return 'デフォルト画像は削除出来ません';
+        }
+
+        // path加工
+        preg_match("/[^\/]+$/", $path, $file);
+        // 削除処理
+        Storage::disk('public')->delete('icon/' . $file[0]);
+
+        // プロフィールのパスをデフォルトに更新
+        User::where('id', $request->user_id)->update([
+            'profile_picture_path' => UserConst::DEFAULT_ICON_PATH
+        ]);
+
+        return '削除完了';
     }
 
     /**
@@ -70,7 +94,7 @@ class ProfileController extends Controller
         // 変更前の画像がデフォルトでない場合、ファイルを削除
         if($path != UserConst::DEFAULT_ICON_PATH) {
             preg_match("/[^\/]+$/", $path, $file);
-            $result = Storage::disk('public')
+            Storage::disk('public')
                 ->delete($dir . '/' . $file[0]);
         }
 
