@@ -20,7 +20,23 @@ class ProfileController extends Controller
      */
     public function show(Request $request)
     {
-        return "ユーザー情報返却";
+        // パラメータチェック
+        if($request) {
+            $err_1 = $request->user_id  ? null : 'user_id, ';
+            if($err_1) {
+                return 'パラメータ不足:'.$err_1;
+            }
+        }
+
+        // ユーザーデータ取得
+        $user = User::where('id', $request->user_id)
+            ->get(['name', 'email', 'description', 'profile_picture_path']);
+
+        return response()->json(
+            [
+                'user' => $user,
+            ]
+        );
     }
 
     /**
