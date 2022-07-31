@@ -51,6 +51,18 @@ class ProfileController extends Controller
      */
     public function updateImg(Request $request)
     {
+        // パラメータチェック
+        if($request) {
+            $err_1 = $request->image ? null : 'image, ';
+            $err_2 = $request->profile_picture_path  ? null : 'profile_picture_path, ';
+            $err_3 = $request->user_id  ? null : 'user_id, ';
+
+            if($err_1 || $err_2 || $err_3) {
+                $result = 'パラメータ不足:'.$err_1.$err_2.$err_3;
+                return $result;
+            }
+        }
+
         // ディレクトリ名
         $dir = 'icon';
         // 変更前のプロフィール画像のパス
