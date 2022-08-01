@@ -15,6 +15,9 @@ use Inertia\Inertia;
 |
 */
 
+// 第一引数：コンポーネント
+// 第二引数：プロパティ配列
+// resources/js/PagesのWelcome.vueを作成したが表示されず
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
