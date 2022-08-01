@@ -55,7 +55,7 @@ class ProjectController extends Controller
     //         ->join('projects', 'secret_managements.project_id', '=', 'projects.project_id');
     //}
 
-/**
+    /**
      * ログインしているユーザが閲覧可能な全企画データを取得
      */
     public function index(Request $request)
@@ -73,7 +73,25 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        if(true) { //通常企画作成
+        // パラメータチェック
+        if ($request) {
+            $err_1 = $request->project_id ? null : 'project_id, ';
+            if ($err_1) {
+                $result = 'パラメータ不足:' . $err_1;
+                return $result;
+            }
+        }
+
+        // レコードがあるか確認
+        $project = Project::where([
+            ['project_id', $request->project_id]
+        ])
+            ->first();
+
+
+        //レコードの追加
+        if (empty($project)) { //通常企画作成
+            $project = Project::create($request->only(['project_id']));
             return "企画の作成";
         } else { //鍵付き企画作成
             return "鍵付き企画の作成";
@@ -85,6 +103,7 @@ class ProjectController extends Controller
      */
     public function show(Request $request)
     {
+        $project = self::makeProjectList();
         return "企画詳細の表示";
     }
 
@@ -112,11 +131,11 @@ class ProjectController extends Controller
     /**
      * 取得したデータをJson形式に変換
      */
-    private function resConversionJson($result, $statusCode=200)
+    private function resConversionJson($result, $statusCode = 200)
     {
-        if(empty($statusCode) || $statusCode < 100 || $statusCode >= 600){
+        if (empty($statusCode) || $statusCode < 100 || $statusCode >= 600) {
             $statusCode = 500;
         }
         return response()->json($result, $statusCode, ['Content-Type' => 'application/json'], JSON_UNESCAPED_SLASHES);
     }
- }
+}
