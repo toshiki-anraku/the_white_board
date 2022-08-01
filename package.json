@@ -23,6 +23,11 @@
         "postcss-import": "^14.0.1",
         "tailwindcss": "^2.1.2",
         "vue": "^3.0.5",
-        "vue-loader": "^16.1.2"
+        "vue-loader": "^16.1.2",
+        "vuex": "^4.0.2"
+    },
+    "dependencies": {
+        "@vue/cli": "^5.0.8",
+        "vue-router": "^4.1.1"
     }
 }
