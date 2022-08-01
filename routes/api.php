@@ -42,13 +42,11 @@ Route::patch('/profile', [ProfileController::class, 'update']);
 // プロフィール画像削除
 Route::delete('/prof-img', [ProfileController::class, 'deleteImg']);
 // プロフィール画像更新
-Route::patch('/prof-img', [ProfileController::class, 'updateImg']);
+Route::post('/prof-img', [ProfileController::class, 'updateImg']);
 // user_idに紐付く企画のデータを返却
 Route::get('/my-projects', [ProfileController::class, 'indexProjects']);
 // 退会処理
 Route::delete('/account', [ProfileController::class, 'withdrawal']);
-// パスワード変更
-Route::patch('/password', [ProfileController::class, 'resetPassword']);
 // フォロー on/off
 Route::post('/follow', [ProfileController::class, 'follow']);
 // 全フォローユーザーのレコード取得
