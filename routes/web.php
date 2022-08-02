@@ -29,11 +29,15 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard',[
-        'home' => Route::has('home'),
-    ]);
+    return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-// Route::get('/home',[SampleController::class, 'sample']);
+Route::middleware(['auth', 'verified'])
+    ->group(function () {
+        Route::get('/dashboard', function () {
+            return Inertia::render('Dashboard');
+        })->name('dashboard');
+        Route::get('/home',[SampleController::class, 'sample'])->name('home');
+});
 
 require __DIR__.'/auth.php';

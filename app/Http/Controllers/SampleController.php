@@ -10,8 +10,6 @@ class SampleController extends Controller
 {
     public function sample()
     {
-        return Inertia::render('Home',[
-            'time' => Carbon::now(),
-        ]);
+        return Inertia::render('Home');
     }
 }
