@@ -21396,23 +21396,6 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
- //vue-router使用のため、モジュールvue-routerをimport
-//※機能ごとにjsファイルを分ける→モジュール化
-// import Vue from 'vue';
-// import VueRouter from 'vue-router'; //vue-routerはインストール済み
-// import router from './router/index' //
-// import store from 'js/store'; //vuex使用のためstoreフォルダをインポート
-// window.Vue = Vue; // ？
-// Vue.use(VueRouter); // Vue.js用のライブラリVueRouterを使用するのでVue.use
-// /*--- Vueインスタンスの作成 ---*/
-// // vueのオプションを記載する
-// const app = new Vue({
-//     el: '#app', //#appをマウント ※既存のDOM要素をVue.jsが生成するDOM要素で置き換えること
-//     router //export default
-//     // store,
-//     // render: h => h(App)
-//   });
-// /*--- Vueインスタンスの作成 ---*/
 
 var appName = ((_window$document$getE = window.document.getElementsByTagName("title")[0]) === null || _window$document$getE === void 0 ? void 0 : _window$document$getE.innerText) || "Laravel";
 (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.createInertiaApp)({
