@@ -1,8 +1,5 @@
 <?php
-
-use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Foundation\Application;
 use App\Http\Controllers\SampleController;
 
 /*
@@ -16,28 +13,15 @@ use App\Http\Controllers\SampleController;
 |
 */
 
-// 第一引数：コンポーネント
-// 第二引数：プロパティ配列
-// resources/js/PagesのWelcome.vueを作成したが表示されず
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+// 未認証表示ルーティング
+Route::get('/', [SampleController::class, 'welcom']);
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware(['auth', 'verified'])
-    ->group(function () {
-        Route::get('/dashboard', function () {
-            return Inertia::render('Dashboard');
-        })->name('dashboard');
-        Route::get('/home',[SampleController::class, 'sample'])->name('home');
+// 認証者専用表示ルーティング
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', [SampleController::class, 'dashboard'])
+        ->name('dashboard');
+    Route::get('/home', [SampleController::class, 'sample'])
+        ->name('home');
 });
 
 require __DIR__.'/auth.php';
