@@ -10,8 +10,8 @@ use Illuminate\Foundation\Application;
 
 class SampleController extends Controller
 {
-    public function welcom() {
-        return Inertia::render('Welcome', [
+    public function top() {
+        return Inertia::render('Top', [
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
             'laravelVersion' => Application::VERSION,

@@ -14,7 +14,7 @@ use App\Http\Controllers\SampleController;
 */
 
 // 未認証表示ルーティング
-Route::get('/', [SampleController::class, 'welcom']);
+Route::get('/', [SampleController::class, 'top']);
 
 // 認証者専用表示ルーティング
 Route::middleware(['auth', 'verified'])->group(function () {
