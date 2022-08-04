@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import TopLayout from "@/Layouts/Top.vue";
+import TopLayout from "@/Layouts/TopLayout.vue";
 import { Head, Link } from "@inertiajs/inertia-vue3";
 
 export default {
