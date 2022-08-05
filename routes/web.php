@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SampleController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,14 +15,12 @@ use App\Http\Controllers\SampleController;
 */
 
 // 未認証表示ルーティング
-Route::get('/', [SampleController::class, 'top']);
+Route::get('/', [ProjectController::class, 'top'])->name('top');
 
 // 認証者専用表示ルーティング
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/dashboard', [SampleController::class, 'dashboard'])
-        ->name('dashboard');
-    Route::get('/home', [SampleController::class, 'sample'])
-        ->name('home');
+    Route::get('/mypage', [ProfileController::class, 'mypage'])
+        ->name('mypage');
 });
 
 require __DIR__.'/auth.php';

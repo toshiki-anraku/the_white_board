@@ -8,7 +8,7 @@
                         <div class="flex">
                             <!-- Logo -->
                             <div class="flex-shrink-0 flex items-center">
-                                <Link :href="route('dashboard')">
+                                <Link :href="route('top')">
                                     <BreezeApplicationLogo
                                         class="block h-9 w-auto"
                                     />
@@ -20,20 +20,10 @@
                                 class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex"
                             >
                                 <BreezeNavLink
-                                    :href="route('dashboard')"
-                                    :active="route().current('dashboard')"
+                                    :href="route('mypage')"
+                                    :active="route().current('mypage')"
                                 >
-                                    Dashboard
-                                </BreezeNavLink>
-                            </div>
-                            <div
-                                class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex"
-                            >
-                                <BreezeNavLink
-                                    :href="route('home')"
-                                    :active="route().current('home')"
-                                >
-                                    Home
+                                    マイページ
                                 </BreezeNavLink>
                             </div>
                         </div>
@@ -132,10 +122,10 @@
                 >
                     <div class="pt-2 pb-3 space-y-1">
                         <BreezeResponsiveNavLink
-                            :href="route('dashboard')"
-                            :active="route().current('dashboard')"
+                            :href="route('mypage')"
+                            :active="route().current('mypage')"
                         >
-                            Dashboard
+                            マイページ
                         </BreezeResponsiveNavLink>
                     </div>
 
