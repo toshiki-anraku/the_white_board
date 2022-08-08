@@ -185,7 +185,6 @@ export default {
         BreezeResponsiveNavLink,
         Link,
     },
-
     data() {
         return {
             showingNavigationDropdown: false,
