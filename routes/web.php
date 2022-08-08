@@ -1,8 +1,7 @@
 <?php
-
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,17 +14,13 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+// 未認証表示ルーティング
+Route::get('/', [ProjectController::class, 'top'])->name('top');
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// 認証者専用表示ルーティング
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/mypage', [ProfileController::class, 'mypage'])
+        ->name('mypage');
+});
 
 require __DIR__.'/auth.php';

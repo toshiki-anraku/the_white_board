@@ -182,12 +182,12 @@ class ProfileController extends Controller
                 'project_medias',
                 'mst_genres',
             ])
-            ->get()
-            ->toArray();
+            ->get();
 
         return response()->json(
             [
                 'my_project' => $myProject,
+                'count' => $myProject->count(),
             ]
         );
     }
