@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
+use App\Models\Like;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -14,11 +16,19 @@ class LikeSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('likes')->insert([
-            'user_id' => 1,
-            'project_id' => 1,
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s'),
-         ]);
+        DB::table('likes')->truncate();
+        $j = 50;
+        $arr = [];
+        $now = Carbon::now();
+        for ($i=1; $i <= 50 ; $i++) {
+            $arr[] = [
+                'user_id' => $i,
+                'project_id' => $j,
+                'created_at' => $now,
+                'updated_at' => $now
+            ];
+            $j--;
+        }
+        Like::insert($arr);
     }
 }

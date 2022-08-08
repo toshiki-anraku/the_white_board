@@ -10,22 +10,36 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
+    use HasFactory;
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var string[]
+     */
+    protected $fillable = [
+        'user_id',
+        'project_name',
+        'explanation',
+        'secret_flag',
+        'mst_genre_id'
+    ];
+
     // likesとの関連定義
     public function likes()
     {
-        return $this->belongsToMany(User::class, 'likes');
+        return $this->belongsToMany(User::class, 'likes')->withTimestamps();
     }
 
     // favoritesとの関連定義
     public function favorites()
     {
-        return $this->belongsToMany(User::class, 'favorites');
+        return $this->belongsToMany(User::class, 'favorites')->withTimestamps();
     }
 
     // secret_managementsとの関連定義
     public function secret_managements()
     {
-        return $this->belongsToMany(User::class, 'secret_managements');
+        return $this->belongsToMany(User::class, 'secret_managements')->withTimestamps();
     }
 
     // commentsとの関連定義
