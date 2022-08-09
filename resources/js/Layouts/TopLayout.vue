@@ -28,9 +28,9 @@
                             </div>
                         </div>
 
-                        <div class="hidden sm:flex sm:items-center sm:ml-6">
-                            <!-- Settings Dropdown -->
-                            <div class="ml-3 relative">
+                        <!-- <div class="hidden sm:flex sm:items-center sm:ml-6"> -->
+                        <!-- Settings Dropdown -->
+                        <!-- <div class="ml-3 relative">
                                 <BreezeDropdown align="right" width="48">
                                     <template #trigger>
                                         <span class="inline-flex rounded-md">
@@ -67,6 +67,10 @@
                                     </template>
                                 </BreezeDropdown>
                             </div>
+                        </div> -->
+
+                        <div class="hidden sm:flex sm:items-center sm:ml-6">
+                            <AuthContainerVue />
                         </div>
 
                         <!-- Hamburger -->
@@ -175,6 +179,7 @@ import BreezeDropdownLink from "@/Components/DropdownLink.vue";
 import BreezeNavLink from "@/Components/NavLink.vue";
 import BreezeResponsiveNavLink from "@/Components/ResponsiveNavLink.vue";
 import { Link } from "@inertiajs/inertia-vue3";
+import AuthContainerVue from "@/OwnComponents/Organisms/AuthContainer.vue";
 
 export default {
     components: {
@@ -184,6 +189,7 @@ export default {
         BreezeNavLink,
         BreezeResponsiveNavLink,
         Link,
+        AuthContainerVue,
     },
     data() {
         return {

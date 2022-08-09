@@ -5,7 +5,7 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 Topページ
             </h2>
-            <div
+            <!-- <div
                 class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0"
             >
                 <div
@@ -37,11 +37,11 @@
                         </Link>
                     </template>
                 </div>
-            </div>
+            </div> -->
         </template>
 
         <!-- ボディ -->
-        <Body>トップページです</Body>>
+        <Body>トップページです</Body>
     </TopLayout>
 </template>
 
@@ -49,6 +49,7 @@
 import TopLayout from "@/Layouts/TopLayout.vue";
 import { Head, Link } from "@inertiajs/inertia-vue3";
 import Body from "@/OwnComponents/Organisms/Body.vue";
+import AuthContainerVue from "@/OwnComponents/Organisms/AuthContainer.vue";
 
 export default {
     components: {
@@ -56,12 +57,11 @@ export default {
         Head,
         Link,
         Body,
+        AuthContainerVue,
     },
     props: {
         canLogin: Boolean,
         canRegister: Boolean,
-        laravelVersion: String,
-        phpVersion: String,
     },
 };
 </script>
