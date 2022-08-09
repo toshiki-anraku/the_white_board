@@ -29,8 +29,6 @@ Route::get('/project', [ProjectController::class, 'show']);
 Route::put('/project', [ProjectController::class, 'update']);
 // 企画の削除
 Route::delete('/project', [ProjectController::class, 'destroy']);
-// ジャンル取得
-Route::get('/genres', [ProjectController::class, 'getGenre']);
 
 /* Profile */
 // お気に入り on/off

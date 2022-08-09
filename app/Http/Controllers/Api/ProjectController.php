@@ -73,6 +73,7 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->all());
         // パラメータチェック
         if ($request) {
             $err_1 = $request->user_id ? null : 'user_id, ';
@@ -84,51 +85,32 @@ class ProjectController extends Controller
                 return $result;
             }
         }
+        // 作成データ配列
+        $arr = [];
 
+        // 作成カラム
+        $columns = [
+            'user_id',
+            'project_name',
+            'explanation',
+            'secret_flag',
+            'mst_genre_id'
+        ];
+
+        // 入力されたデータがある場合は配列に代入
+        foreach ($columns as $value) {
+            if (isset($request->$value)) {
+                $arr[$value] = $request->$value;
+            }
+        }
         //レコードの追加
         if ($request->secret_flag == 0) { //通常企画作成
-            // 作成データ配列
-            $arr = [];
 
-            // 作成カラム
-            $columns = [
-                'user_id',
-                'project_name',
-                'explanation',
-                'secret_flag',
-                'mst_genre_id'
-            ];
-
-            // 入力されたデータがある場合は配列に代入
-            foreach ($columns as $value) {
-                if (isset($request->$value)) {
-                    $arr[$value] = $request->$value;
-                }
-            }
             // 新規企画作成
             Project::create($arr);
 
             return '企画作成';
         } else { //鍵付き企画作成
-            // 作成データ配列
-            $arr = [];
-
-            // 作成カラム
-            $columns = [
-                'user_id',
-                'project_name',
-                'explanation',
-                'secret_flag',
-                'mst_genre_id'
-            ];
-
-            // 入力されたデータがある場合は配列に代入
-            foreach ($columns as $value) {
-                if ($request->$value) {
-                    $arr[$value] = $request->$value;
-                }
-            }
-
             // 新規企画作成
             try {
                 $project = Project::create($arr);
@@ -186,15 +168,70 @@ class ProjectController extends Controller
 
     /**
      * 企画の更新
-     * ※鍵付き投稿を見ることが出来るユーザーの変更にも対応
-     * パターン1.通常更新
-     * パターン2.鍵付き変更後の更新
-     * パターン3.鍵付き解除後の更新
-     * パターン4.権限ありユーザーの権限変更後の更新
+     *
+     * @param Request $request project_id , user_id
+     * @return void
      */
     public function update(Request $request)
     {
-        return "企画の更新";
+        // パラメータチェック
+        if ($request) {
+            $err_1 = $request->project_id ? null : 'project_id';
+            $err_2 = $request->user_id ? null : 'user_id';
+            if ($err_1 || $err_2) {
+                $result = 'パラメータ不足:' . $err_1 . $err_2;
+                return $result;
+            }
+        }
+
+        // 更新データ配列
+        $arr = [];
+
+        // 更新カラム
+        $columns = [
+            'project_name',
+            'explanation',
+            'secret_flag',
+            'mst_genre_id'
+        ];
+
+        // 入力されたデータがある場合は配列に代入
+        foreach ($columns as $value) {
+            if (isset($request->$value)) {
+                $arr[$value] = $request->$value;
+            }
+        }
+
+        // レコードの更新
+        if ($request->secret_flag == 0 || !$request->secret_flag) { //通常企画更新
+            // 新規企画更新
+            Project::where('id', $request->project_id)
+                ->update($arr);
+
+            return '企画更新';
+        } else { //鍵付き企画更新
+            // 新規企画更新
+            try {
+                Project::where('id', $request->project_id)
+                    ->update($arr);
+
+                // 更新用secret_managementsデータ配列
+                $secret_managements = [$request->user_id];
+                if ($request->secret_managements) {
+                    foreach ($request->secret_managements as $sm) {
+                        $secret_managements[] = $sm['user_id'];
+                    }
+                }
+
+                // 中間テーブルのレコード更新
+                Project::find($request->project_id)
+                    ->secret_managements()
+                    ->sync($secret_managements);
+            } catch (\Throwable $th) {
+                throw $th;
+            }
+            return "鍵付き企画の更新";
+        }
     }
 
     /**
