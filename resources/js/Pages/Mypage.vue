@@ -1,7 +1,10 @@
 <template>
-    <Head title="Dashboard" />
+    <!-- ページタイトル -->
+    <Head title="MY PAGE" />
 
+    <!-- ヘッダー・フッター -->
     <BreezeAuthenticatedLayout>
+        <!-- ボディタイトル -->
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 マイページ
@@ -9,7 +12,7 @@
         </template>
 
         <!-- ボディ -->
-        <Body>マイページです</Body>>
+        <Body>マイページです</Body>
     </BreezeAuthenticatedLayout>
 </template>
 

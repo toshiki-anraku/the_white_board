@@ -1,6 +1,5 @@
 <template>
-    ログイン
-    <!-- <div
+    <div
         class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0"
     >
         <div
@@ -32,10 +31,15 @@
                 </Link>
             </template>
         </div>
-    </div> -->
+    </div>
 </template>
 <script>
+import { Link } from "@inertiajs/inertia-vue3";
+
 export default {
+    components: {
+        Link,
+    },
     props: {
         canLogin: Boolean,
         canRegister: Boolean,

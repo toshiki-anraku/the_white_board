@@ -19875,6 +19875,10 @@ __webpack_require__.r(__webpack_exports__);
     return {
       showingNavigationDropdown: false
     };
+  },
+  props: {
+    canLogin: Boolean,
+    canRegister: Boolean
   }
 });
 
@@ -19891,7 +19895,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    Link: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.Link
+  },
   props: {
     canLogin: Boolean,
     canRegister: Boolean
@@ -20276,8 +20285,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_TopLayout_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/TopLayout.vue */ "./resources/js/Layouts/TopLayout.vue");
 /* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
 /* harmony import */ var _OwnComponents_Organisms_Body_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/OwnComponents/Organisms/Body.vue */ "./resources/js/OwnComponents/Organisms/Body.vue");
-/* harmony import */ var _OwnComponents_Organisms_AuthContainer_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/OwnComponents/Organisms/AuthContainer.vue */ "./resources/js/OwnComponents/Organisms/AuthContainer.vue");
-
 
 
 
@@ -20285,9 +20292,7 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     TopLayout: _Layouts_TopLayout_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     Head: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.Head,
-    Link: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.Link,
-    Body: _OwnComponents_Organisms_Body_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    AuthContainerVue: _OwnComponents_Organisms_AuthContainer_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    Body: _OwnComponents_Organisms_Body_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   props: {
     canLogin: Boolean,
@@ -21035,7 +21040,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["href", "active"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"hidden sm:flex sm:items-center sm:ml-6\"> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Settings Dropdown "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"ml-3 relative\">\n                                <BreezeDropdown align=\"right\" width=\"48\">\n                                    <template #trigger>\n                                        <span class=\"inline-flex rounded-md\">\n                                            <button\n                                                type=\"button\"\n                                                class=\"inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150\"\n                                            >\n                                                {{ $page.props.auth.user.name }}\n\n                                                <svg\n                                                    class=\"ml-2 -mr-0.5 h-4 w-4\"\n                                                    xmlns=\"http://www.w3.org/2000/svg\"\n                                                    viewBox=\"0 0 20 20\"\n                                                    fill=\"currentColor\"\n                                                >\n                                                    <path\n                                                        fill-rule=\"evenodd\"\n                                                        d=\"M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z\"\n                                                        clip-rule=\"evenodd\"\n                                                    />\n                                                </svg>\n                                            </button>\n                                        </span>\n                                    </template>\n\n                                    <template #content>\n                                        <BreezeDropdownLink\n                                            :href=\"route('logout')\"\n                                            method=\"post\"\n                                            as=\"button\"\n                                        >\n                                            Log Out\n                                        </BreezeDropdownLink>\n                                    </template>\n                                </BreezeDropdown>\n                            </div>\n                        </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_AuthContainerVue)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Hamburger "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  , ["href", "active"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"hidden sm:flex sm:items-center sm:ml-6\"> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Settings Dropdown "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"ml-3 relative\">\n                                <BreezeDropdown align=\"right\" width=\"48\">\n                                    <template #trigger>\n                                        <span class=\"inline-flex rounded-md\">\n                                            <button\n                                                type=\"button\"\n                                                class=\"inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150\"\n                                            >\n                                                {{ $page.props.auth.user.name }}\n\n                                                <svg\n                                                    class=\"ml-2 -mr-0.5 h-4 w-4\"\n                                                    xmlns=\"http://www.w3.org/2000/svg\"\n                                                    viewBox=\"0 0 20 20\"\n                                                    fill=\"currentColor\"\n                                                >\n                                                    <path\n                                                        fill-rule=\"evenodd\"\n                                                        d=\"M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z\"\n                                                        clip-rule=\"evenodd\"\n                                                    />\n                                                </svg>\n                                            </button>\n                                        </span>\n                                    </template>\n\n                                    <template #content>\n                                        <BreezeDropdownLink\n                                            :href=\"route('logout')\"\n                                            method=\"post\"\n                                            as=\"button\"\n                                        >\n                                            Log Out\n                                        </BreezeDropdownLink>\n                                    </template>\n                                </BreezeDropdown>\n                            </div>\n                        </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_AuthContainerVue, {
+    "can-login": $props.canLogin,
+    "can-register": $props.canRegister
+  }, null, 8
+  /* PROPS */
+  , ["can-login", "can-register"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Hamburger "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     onClick: _cache[0] || (_cache[0] = function ($event) {
       return $data.showingNavigationDropdown = !$data.showingNavigationDropdown;
     }),
@@ -21116,13 +21126,66 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
+var _hoisted_1 = {
+  "class": "relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0"
+};
+var _hoisted_2 = {
+  key: 0,
+  "class": "hidden fixed top-0 right-0 px-6 py-4 sm:block"
+};
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" ログイン ");
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" マイページ ");
+
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Log in ");
+
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Register ");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div\n        class=\"relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0\"\n    >\n        <div\n            v-if=\"canLogin\"\n            class=\"hidden fixed top-0 right-0 px-6 py-4 sm:block\"\n        >\n            <Link\n                v-if=\"$page.props.auth.user\"\n                :href=\"route('mypage')\"\n                class=\"text-sm text-gray-700 underline\"\n            >\n                マイページ\n            </Link>\n\n            <template v-else>\n                <Link\n                    :href=\"route('login')\"\n                    class=\"text-sm text-gray-700 underline\"\n                >\n                    Log in\n                </Link>\n\n                <Link\n                    v-if=\"canRegister\"\n                    :href=\"route('register')\"\n                    class=\"ml-4 text-sm text-gray-700 underline\"\n                >\n                    Register\n                </Link>\n            </template>\n        </div>\n    </div> ")], 2112
-  /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */
-  );
+  var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [$props.canLogin ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_2, [_ctx.$page.props.auth.user ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Link, {
+    key: 0,
+    href: _ctx.route('mypage'),
+    "class": "text-sm text-gray-700 underline"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_3];
+    }),
+    _: 1
+    /* STABLE */
+
+  }, 8
+  /* PROPS */
+  , ["href"])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    key: 1
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+    href: _ctx.route('login'),
+    "class": "text-sm text-gray-700 underline"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_4];
+    }),
+    _: 1
+    /* STABLE */
+
+  }, 8
+  /* PROPS */
+  , ["href"]), $props.canRegister ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Link, {
+    key: 0,
+    href: _ctx.route('register'),
+    "class": "ml-4 text-sm text-gray-700 underline"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_5];
+    }),
+    _: 1
+    /* STABLE */
+
+  }, 8
+  /* PROPS */
+  , ["href"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 64
+  /* STABLE_FRAGMENT */
+  ))])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
 }
 
 /***/ }),
@@ -21837,8 +21900,6 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("マイページです");
 
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("> ");
-
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Head = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Head");
 
@@ -21846,9 +21907,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   var _component_BreezeAuthenticatedLayout = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("BreezeAuthenticatedLayout");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Head, {
-    title: "Dashboard"
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BreezeAuthenticatedLayout, null, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" ページタイトル "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Head, {
+    title: "MY PAGE"
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" ヘッダー・フッター "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BreezeAuthenticatedLayout, null, {
     header: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_1];
     }),
@@ -21860,7 +21921,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         _: 1
         /* STABLE */
 
-      }), _hoisted_3];
+      })];
     }),
     _: 1
     /* STABLE */
@@ -21901,11 +21962,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   var _component_TopLayout = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("TopLayout");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Head, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" ページタイトル "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Head, {
     title: "The whitE boarD"
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_TopLayout, null, {
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" ヘッダー・フッター "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_TopLayout, {
+    "can-login": $props.canLogin,
+    "can-register": $props.canRegister
+  }, {
     header: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div\n                class=\"relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0\"\n            >\n                <div\n                    v-if=\"canLogin\"\n                    class=\"hidden fixed top-0 right-0 px-6 py-4 sm:block\"\n                >\n                    <Link\n                        v-if=\"$page.props.auth.user\"\n                        :href=\"route('mypage')\"\n                        class=\"text-sm text-gray-700 underline\"\n                    >\n                        マイページ\n                    </Link>\n\n                    <template v-else>\n                        <Link\n                            :href=\"route('login')\"\n                            class=\"text-sm text-gray-700 underline\"\n                        >\n                            Log in\n                        </Link>\n\n                        <Link\n                            v-if=\"canRegister\"\n                            :href=\"route('register')\"\n                            class=\"ml-4 text-sm text-gray-700 underline\"\n                        >\n                            Register\n                        </Link>\n                    </template>\n                </div>\n            </div> ")];
+      return [_hoisted_1];
     }),
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Body, null, {
@@ -21920,7 +21984,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
     /* STABLE */
 
-  })], 64
+  }, 8
+  /* PROPS */
+  , ["can-login", "can-register"])], 64
   /* STABLE_FRAGMENT */
   );
 }

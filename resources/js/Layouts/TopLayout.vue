@@ -70,7 +70,10 @@
                         </div> -->
 
                         <div class="hidden sm:flex sm:items-center sm:ml-6">
-                            <AuthContainerVue />
+                            <AuthContainerVue
+                                :can-login="canLogin"
+                                :can-register="canRegister"
+                            />
                         </div>
 
                         <!-- Hamburger -->
@@ -195,6 +198,10 @@ export default {
         return {
             showingNavigationDropdown: false,
         };
+    },
+    props: {
+        canLogin: Boolean,
+        canRegister: Boolean,
     },
 };
 </script>
