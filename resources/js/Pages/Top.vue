@@ -3,7 +3,7 @@
     <Head title="The whitE boarD" />
 
     <!-- ヘッダー・フッター -->
-    <TopLayout :can-login="canLogin" :can-register="canRegister">
+    <BeforeAuth :can-login="canLogin" :can-register="canRegister">
         <!-- ページヘッダー -->
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -13,17 +13,17 @@
 
         <!-- ボディ -->
         <Body>トップページです</Body>
-    </TopLayout>
+    </BeforeAuth>
 </template>
 
 <script>
-import TopLayout from "@/Layouts/TopLayout.vue";
+import BeforeAuth from "@/Layouts/BeforeAuthentication.vue";
 import { Head } from "@inertiajs/inertia-vue3";
 import Body from "@/OwnComponents/Organisms/Body.vue";
 
 export default {
     components: {
-        TopLayout,
+        BeforeAuth,
         Head,
         Body,
     },
