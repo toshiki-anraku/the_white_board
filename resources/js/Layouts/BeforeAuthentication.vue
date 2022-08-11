@@ -29,7 +29,7 @@
                                     :href="route('show')"
                                     :active="route().current('show')"
                                 >
-                                    プロジェクト
+                                    プロジェクトCRUD
                                 </BreezeNavLink>
                             </div>
                         </div>

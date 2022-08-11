@@ -7,14 +7,12 @@
         <!-- ページヘッダー -->
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Topページ
+                夢あふれる企画たち
             </h2>
         </template>
-        <!-- プロフィール表示 -->
-        氏名
 
         <!-- ボディ -->
-        <Body>トップページです</Body>
+        <Body>企画一覧をここに配置</Body>
     </BeforeAuth>
 </template>
 
