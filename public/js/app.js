@@ -20271,6 +20271,37 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Project.vue?vue&type=script&lang=js":
+/*!********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Project.vue?vue&type=script&lang=js ***!
+  \********************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Layouts_BeforeAuthentication_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/BeforeAuthentication.vue */ "./resources/js/Layouts/BeforeAuthentication.vue");
+/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+/* harmony import */ var _OwnComponents_Organisms_Body_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/OwnComponents/Organisms/Body.vue */ "./resources/js/OwnComponents/Organisms/Body.vue");
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    BeforeAuth: _Layouts_BeforeAuthentication_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    Head: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.Head,
+    Body: _OwnComponents_Organisms_Body_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  props: {
+    canLogin: Boolean,
+    canRegister: Boolean
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Top.vue?vue&type=script&lang=js":
 /*!****************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Top.vue?vue&type=script&lang=js ***!
@@ -20921,14 +20952,16 @@ var _hoisted_7 = {
 
 var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" マイページ ");
 
-var _hoisted_9 = {
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" プロジェクト ");
+
+var _hoisted_10 = {
   "class": "hidden sm:flex sm:items-center sm:ml-6"
 };
-var _hoisted_10 = {
+var _hoisted_11 = {
   key: 0,
   "class": "bg-white shadow"
 };
-var _hoisted_11 = {
+var _hoisted_12 = {
   "class": "max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -20965,12 +20998,24 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["href", "active"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Login・新規登録 "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_AuthContainerVue, {
+  , ["href", "active"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BreezeNavLink, {
+    href: _ctx.route('show'),
+    active: _ctx.route().current('show')
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_9];
+    }),
+    _: 1
+    /* STABLE */
+
+  }, 8
+  /* PROPS */
+  , ["href", "active"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Login・新規登録 "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_AuthContainerVue, {
     "can-login": $props.canLogin,
     "can-register": $props.canRegister
   }, null, 8
   /* PROPS */
-  , ["can-login", "can-register"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Hamburger "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"-mr-2 flex items-center sm:hidden\">\n                            <button\n                                @click=\"\n                                    showingNavigationDropdown =\n                                        !showingNavigationDropdown\n                                \"\n                                class=\"inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out\"\n                            >\n                                <svg\n                                    class=\"h-6 w-6\"\n                                    stroke=\"currentColor\"\n                                    fill=\"none\"\n                                    viewBox=\"0 0 24 24\"\n                                >\n                                    <path\n                                        :class=\"{\n                                            hidden: showingNavigationDropdown,\n                                            'inline-flex':\n                                                !showingNavigationDropdown,\n                                        }\"\n                                        stroke-linecap=\"round\"\n                                        stroke-linejoin=\"round\"\n                                        stroke-width=\"2\"\n                                        d=\"M4 6h16M4 12h16M4 18h16\"\n                                    />\n                                    <path\n                                        :class=\"{\n                                            hidden: !showingNavigationDropdown,\n                                            'inline-flex':\n                                                showingNavigationDropdown,\n                                        }\"\n                                        stroke-linecap=\"round\"\n                                        stroke-linejoin=\"round\"\n                                        stroke-width=\"2\"\n                                        d=\"M6 18L18 6M6 6l12 12\"\n                                    />\n                                </svg>\n                            </button>\n                        </div> ")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Responsive Navigation Menu "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div\n                    :class=\"{\n                        block: showingNavigationDropdown,\n                        hidden: !showingNavigationDropdown,\n                    }\"\n                    class=\"sm:hidden\"\n                >\n                    <div class=\"pt-2 pb-3 space-y-1\">\n                        <BreezeResponsiveNavLink\n                            :href=\"route('mypage')\"\n                            :active=\"route().current('mypage')\"\n                        >\n                            マイページ\n                        </BreezeResponsiveNavLink>\n                    </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Responsive Settings Options "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"pt-4 pb-1 border-t border-gray-200\">\n                        <div class=\"px-4\">\n                            <div class=\"font-medium text-base text-gray-800\">\n                                {{ $page.props.auth.user.name }}\n                            </div>\n                            <div class=\"font-medium text-sm text-gray-500\">\n                                {{ $page.props.auth.user.email }}\n                            </div>\n                        </div>\n\n                        <div class=\"mt-3 space-y-1\">\n                            <BreezeResponsiveNavLink\n                                :href=\"route('logout')\"\n                                method=\"post\"\n                                as=\"button\"\n                            >\n                                Log Out\n                            </BreezeResponsiveNavLink>\n                        </div>\n                    </div>\n                </div> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Page Heading "), _ctx.$slots.header ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("header", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "header")])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Page Content "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("main", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])])]);
+  , ["can-login", "can-register"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Hamburger "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"-mr-2 flex items-center sm:hidden\">\n                            <button\n                                @click=\"\n                                    showingNavigationDropdown =\n                                        !showingNavigationDropdown\n                                \"\n                                class=\"inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out\"\n                            >\n                                <svg\n                                    class=\"h-6 w-6\"\n                                    stroke=\"currentColor\"\n                                    fill=\"none\"\n                                    viewBox=\"0 0 24 24\"\n                                >\n                                    <path\n                                        :class=\"{\n                                            hidden: showingNavigationDropdown,\n                                            'inline-flex':\n                                                !showingNavigationDropdown,\n                                        }\"\n                                        stroke-linecap=\"round\"\n                                        stroke-linejoin=\"round\"\n                                        stroke-width=\"2\"\n                                        d=\"M4 6h16M4 12h16M4 18h16\"\n                                    />\n                                    <path\n                                        :class=\"{\n                                            hidden: !showingNavigationDropdown,\n                                            'inline-flex':\n                                                showingNavigationDropdown,\n                                        }\"\n                                        stroke-linecap=\"round\"\n                                        stroke-linejoin=\"round\"\n                                        stroke-width=\"2\"\n                                        d=\"M6 18L18 6M6 6l12 12\"\n                                    />\n                                </svg>\n                            </button>\n                        </div> ")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Responsive Navigation Menu "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div\n                    :class=\"{\n                        block: showingNavigationDropdown,\n                        hidden: !showingNavigationDropdown,\n                    }\"\n                    class=\"sm:hidden\"\n                >\n                    <div class=\"pt-2 pb-3 space-y-1\">\n                        <BreezeResponsiveNavLink\n                            :href=\"route('mypage')\"\n                            :active=\"route().current('mypage')\"\n                        >\n                            マイページ\n                        </BreezeResponsiveNavLink>\n                    </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Responsive Settings Options "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"pt-4 pb-1 border-t border-gray-200\">\n                        <div class=\"px-4\">\n                            <div class=\"font-medium text-base text-gray-800\">\n                                {{ $page.props.auth.user.name }}\n                            </div>\n                            <div class=\"font-medium text-sm text-gray-500\">\n                                {{ $page.props.auth.user.email }}\n                            </div>\n                        </div>\n\n                        <div class=\"mt-3 space-y-1\">\n                            <BreezeResponsiveNavLink\n                                :href=\"route('logout')\"\n                                method=\"post\"\n                                as=\"button\"\n                            >\n                                Log Out\n                            </BreezeResponsiveNavLink>\n                        </div>\n                    </div>\n                </div> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Page Heading "), _ctx.$slots.header ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("header", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "header")])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Page Content "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("main", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])])]);
 }
 
 /***/ }),
@@ -21872,6 +21917,66 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     /* STABLE */
 
   })], 64
+  /* STABLE_FRAGMENT */
+  );
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Project.vue?vue&type=template&id=a1152200":
+/*!************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Project.vue?vue&type=template&id=a1152200 ***!
+  \************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  "class": "font-semibold text-xl text-gray-800 leading-tight"
+}, " プロジェクトCRUDページ ", -1
+/* HOISTED */
+);
+
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("プロジェクトCRUDです");
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_Head = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Head");
+
+  var _component_Body = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Body");
+
+  var _component_BeforeAuth = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("BeforeAuth");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" ページタイトル "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Head, {
+    title: "プロジェクトCRUD"
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" ヘッダー・フッター "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_BeforeAuth, {
+    "can-login": $props.canLogin,
+    "can-register": $props.canRegister
+  }, {
+    header: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_1];
+    }),
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Body, null, {
+        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [_hoisted_2];
+        }),
+        _: 1
+        /* STABLE */
+
+      })];
+    }),
+    _: 1
+    /* STABLE */
+
+  }, 8
+  /* PROPS */
+  , ["can-login", "can-register"])], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -46506,6 +46611,34 @@ if (false) {}
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Project.vue":
+/*!****************************************!*\
+  !*** ./resources/js/Pages/Project.vue ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Project_vue_vue_type_template_id_a1152200__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Project.vue?vue&type=template&id=a1152200 */ "./resources/js/Pages/Project.vue?vue&type=template&id=a1152200");
+/* harmony import */ var _Project_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Project.vue?vue&type=script&lang=js */ "./resources/js/Pages/Project.vue?vue&type=script&lang=js");
+/* harmony import */ var _Users_toshiki_workspace_04_dev_environment_lamp_laravel_var_public_html_the_white_board_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,_Users_toshiki_workspace_04_dev_environment_lamp_laravel_var_public_html_the_white_board_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Project_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Project_vue_vue_type_template_id_a1152200__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/Project.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Top.vue":
 /*!************************************!*\
   !*** ./resources/js/Pages/Top.vue ***!
@@ -46850,6 +46983,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Mypage_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Mypage_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Mypage.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Mypage.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Project.vue?vue&type=script&lang=js":
+/*!****************************************************************!*\
+  !*** ./resources/js/Pages/Project.vue?vue&type=script&lang=js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Project_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Project_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Project.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Project.vue?vue&type=script&lang=js");
  
 
 /***/ }),
@@ -47222,6 +47371,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Project.vue?vue&type=template&id=a1152200":
+/*!**********************************************************************!*\
+  !*** ./resources/js/Pages/Project.vue?vue&type=template&id=a1152200 ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Project_vue_vue_type_template_id_a1152200__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Project_vue_vue_type_template_id_a1152200__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Project.vue?vue&type=template&id=a1152200 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Project.vue?vue&type=template&id=a1152200");
+
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Top.vue?vue&type=template&id=0baab288":
 /*!******************************************************************!*\
   !*** ./resources/js/Pages/Top.vue?vue&type=template&id=0baab288 ***!
@@ -47482,6 +47647,7 @@ var map = {
 	"./Auth/ResetPassword.vue": "./resources/js/Pages/Auth/ResetPassword.vue",
 	"./Auth/VerifyEmail.vue": "./resources/js/Pages/Auth/VerifyEmail.vue",
 	"./Mypage.vue": "./resources/js/Pages/Mypage.vue",
+	"./Project.vue": "./resources/js/Pages/Project.vue",
 	"./Top.vue": "./resources/js/Pages/Top.vue"
 };
 

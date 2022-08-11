@@ -15,6 +15,7 @@ use App\Http\Controllers\ProjectController;
 */
 
 // 未認証表示ルーティング
+Route::get('/project', [ProjectController::class, 'show'])->name('show');
 Route::get('/', [ProjectController::class, 'top'])->name('top');
 
 // 認証者専用表示ルーティング

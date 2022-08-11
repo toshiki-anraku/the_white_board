@@ -25,6 +25,12 @@
                                 >
                                     マイページ
                                 </BreezeNavLink>
+                                <BreezeNavLink
+                                    :href="route('show')"
+                                    :active="route().current('show')"
+                                >
+                                    プロジェクト
+                                </BreezeNavLink>
                             </div>
                         </div>
 
