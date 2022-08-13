@@ -14,4 +14,12 @@ class ProjectController extends Controller
             'canRegister' => Route::has('register'),
         ]);
     }
+
+    public function show()
+    {
+        return Inertia::render('Project', [
+            'canLogin' => Route::has('login'),
+            'canRegister' => Route::has('register'),
+        ]);
+    }
 }
